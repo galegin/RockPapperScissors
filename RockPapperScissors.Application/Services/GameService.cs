@@ -35,11 +35,11 @@ namespace RockPapperScissors.Application
                     for (int z = 0; z < players.GetLength(2); z += 1)
                     {
                         var player = players[x, y, z];
-                        Console.WriteLine($"Player => {player.Name} / {player.Move}");
+                        Console.WriteLine($"Player => {player.Name} move {player.Move}");
                     }
 
                     winners[x, y] = rps_game_winner(players[x, y, 0], players[x, y, 1]);
-                    Console.WriteLine($"Player winner => {winners[x, y].Name} / {winners[x, y].Move}\n");
+                    Console.WriteLine($"Player winner => {winners[x, y].Name} move {winners[x, y].Move}\n");
                 }
             }
 
@@ -57,11 +57,11 @@ namespace RockPapperScissors.Application
                 for (int y = 0; y < players.GetLength(1); y += 1)
                 {
                     var player = players[x, y];
-                    Console.WriteLine($"Player => {player.Name} / {player.Move}");
+                    Console.WriteLine($"Player => {player.Name} move {player.Move}");
                 }
 
                 winners[x] = rps_game_winner(players[x, 0], players[x, 1]);
-                Console.WriteLine($"Player winner => {winners[x].Name} / {winners[x].Move}\n");
+                Console.WriteLine($"Player winner => {winners[x].Name} move {winners[x].Move}\n");
             }
 
             var winner = rps_game_winner(winners[0], winners[1]);
