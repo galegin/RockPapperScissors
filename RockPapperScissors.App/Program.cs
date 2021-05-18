@@ -21,13 +21,12 @@ namespace RockPapperScissors.App
             {
                 Console.WriteLine($"Part A\n");
                 var gameWiner = GameService.rps_game_winner(players);
-                Console.WriteLine($"Player winner is {gameWiner.Name} with move {gameWiner.Move}");
+                Console.WriteLine($"Player winner is {gameWiner.Name} with move {gameWiner.Move}\n");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.GetType().Name);
             }
-            Console.WriteLine($"\n");
 
             // Part B
             /*
@@ -65,6 +64,7 @@ namespace RockPapperScissors.App
                 Console.WriteLine(ex.GetType().Name);
             }
 
+            Console.WriteLine($"\nPress one key to continue...");
             Console.ReadKey();
         }
     }

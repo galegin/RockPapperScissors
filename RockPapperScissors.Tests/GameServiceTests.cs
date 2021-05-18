@@ -8,7 +8,7 @@ namespace RockPapperScissors.Tests
     public class GameServiceTests
     {
         [TestMethod]
-        public void TestMethod_DaveWinner()
+        public void TestMethod_Winner()
         {
             var players = new Player[2]
             {

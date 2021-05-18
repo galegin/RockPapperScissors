@@ -26,7 +26,7 @@ namespace RockPapperScissors.Application
 
         public static Player rps_tournament_winner(Player[,,] players)
         {
-            var winners = new Player[2, 2];
+            var winners = new Player[players.GetLength(0), players.GetLength(1)];
 
             for (int x = 0; x < players.GetLength(0); x += 1)
             {
@@ -35,11 +35,11 @@ namespace RockPapperScissors.Application
                     for (int z = 0; z < players.GetLength(2); z += 1)
                     {
                         var player = players[x, y, z];
-                        Console.WriteLine($"Player => {player.Name}");
+                        Console.WriteLine($"Player => {player.Name} / {player.Move}");
                     }
 
                     winners[x, y] = rps_game_winner(new[] { players[x, y, 0], players[x, y, 1] });
-                    Console.WriteLine($"Player winner => {winners[x, y].Name}");
+                    Console.WriteLine($"Player winner => {winners[x, y].Name} / {winners[x, y].Move}\n");
                 }
             }
 
@@ -50,18 +50,18 @@ namespace RockPapperScissors.Application
         
         public static Player rps_tournament_winner(Player[,] players)
         {
-            var winners = new Player[2];
+            var winners = new Player[players.GetLength(0)];
 
             for (int x = 0; x < players.GetLength(0); x += 1)
             {
                 for (int y = 0; y < players.GetLength(1); y += 1)
                 {
                     var player = players[x, y];
-                    Console.WriteLine($"Player => {player.Name}");
+                    Console.WriteLine($"Player => {player.Name} / {player.Move}");
                 }
 
                 winners[x] = rps_game_winner(new[] { players[x, 0], players[x, 1] });
-                Console.WriteLine($"Player winner => {winners[x].Name}");
+                Console.WriteLine($"Player winner => {winners[x].Name} / {winners[x].Move}\n");
             }
 
             var winner = rps_game_winner(new[] { winners[0], winners[1] });
