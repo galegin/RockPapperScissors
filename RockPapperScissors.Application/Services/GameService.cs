@@ -32,7 +32,7 @@ namespace RockPapperScissors.Application
                 {
                     for (int z = 0; z < players.GetLength(2); z += 1)
                     {
-                        Console.WriteLine($"{players[x, y, z].GetMove()}");
+                        Console.WriteLine(players[x, y, z].GetMove());
                     }
 
                     winners[x, y] = rps_game_winner(players[x, y, 0], players[x, y, 1]);
@@ -53,7 +53,7 @@ namespace RockPapperScissors.Application
             {
                 for (int y = 0; y < players.GetLength(1); y += 1)
                 {
-                    Console.WriteLine($"{players[x, y].GetMove()}");
+                    Console.WriteLine(players[x, y].GetMove());
                 }
 
                 winners[x] = rps_game_winner(players[x, 0], players[x, 1]);
