@@ -5,7 +5,7 @@ namespace RockPapperScissors.Application
 {
     public class GameService
     {
-        public static Player rps_game_winner(Player[] players)
+        public static Player rps_game_winner(params Player[] players)
         {
             if (players.Length != 2)
                 throw new WrongNumberOfPlayersError();
@@ -38,7 +38,7 @@ namespace RockPapperScissors.Application
                         Console.WriteLine($"Player => {player.Name} / {player.Move}");
                     }
 
-                    winners[x, y] = rps_game_winner(new[] { players[x, y, 0], players[x, y, 1] });
+                    winners[x, y] = rps_game_winner(players[x, y, 0], players[x, y, 1]);
                     Console.WriteLine($"Player winner => {winners[x, y].Name} / {winners[x, y].Move}\n");
                 }
             }
@@ -60,11 +60,11 @@ namespace RockPapperScissors.Application
                     Console.WriteLine($"Player => {player.Name} / {player.Move}");
                 }
 
-                winners[x] = rps_game_winner(new[] { players[x, 0], players[x, 1] });
+                winners[x] = rps_game_winner(players[x, 0], players[x, 1]);
                 Console.WriteLine($"Player winner => {winners[x].Name} / {winners[x].Move}\n");
             }
 
-            var winner = rps_game_winner(new[] { winners[0], winners[1] });
+            var winner = rps_game_winner(winners[0], winners[1]);
 
             return winner;
         }
