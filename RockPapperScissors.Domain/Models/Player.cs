@@ -23,5 +23,15 @@
         {
             return player.Move.IsWinnerFrom(playerFrom.Move);
         }
+
+        public static string GetMove(this Player player)
+        {
+            return $"Player => {player.Name} move {player.Move}";
+        }
+
+        public static string GetMoveWinner(this Player player)
+        {
+            return $"Player winner => {player.Name} with move {player.Move}";
+        }
     }
 }

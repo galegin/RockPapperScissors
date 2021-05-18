@@ -22,13 +22,6 @@ namespace RockPapperScissors.Domain
         public static bool IsNone(this MoveType type)
             => type.In(MoveType.None);
 
-        public static bool IsRock(this MoveType type)
-            => type.In(MoveType.Rock);
-        public static bool IsPapper(this MoveType type)
-            => type.In(MoveType.Papper);
-        public static bool IsScissors(this MoveType type)
-            => type.In(MoveType.Scissors);
-
         public static string GetXmlEnum(this MoveType type)
         {
             var xmlEnum = type.GetAttributeEnum<MoveType, XmlEnumAttribute>();

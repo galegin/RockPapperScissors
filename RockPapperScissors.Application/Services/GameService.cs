@@ -18,10 +18,8 @@ namespace RockPapperScissors.Application
                 return players[0];
             else if (players[0].IsWinnerFrom(players[1]))
                 return players[0];
-            else if (players[1].IsWinnerFrom(players[0]))
+            else
                 return players[1];
-
-            return null;
         }
 
         public static Player rps_tournament_winner(Player[,,] players)
@@ -34,12 +32,11 @@ namespace RockPapperScissors.Application
                 {
                     for (int z = 0; z < players.GetLength(2); z += 1)
                     {
-                        var player = players[x, y, z];
-                        Console.WriteLine($"Player => {player.Name} move {player.Move}");
+                        Console.WriteLine($"{players[x, y, z].GetMove()}");
                     }
 
                     winners[x, y] = rps_game_winner(players[x, y, 0], players[x, y, 1]);
-                    Console.WriteLine($"Player winner => {winners[x, y].Name} move {winners[x, y].Move}\n");
+                    Console.WriteLine($"{winners[x, y].GetMoveWinner()}\n");
                 }
             }
 
@@ -56,12 +53,11 @@ namespace RockPapperScissors.Application
             {
                 for (int y = 0; y < players.GetLength(1); y += 1)
                 {
-                    var player = players[x, y];
-                    Console.WriteLine($"Player => {player.Name} move {player.Move}");
+                    Console.WriteLine($"{players[x, y].GetMove()}");
                 }
 
                 winners[x] = rps_game_winner(players[x, 0], players[x, 1]);
-                Console.WriteLine($"Player winner => {winners[x].Name} move {winners[x].Move}\n");
+                Console.WriteLine($"{winners[x].GetMoveWinner()}\n");
             }
 
             var winner = rps_game_winner(winners[0], winners[1]);

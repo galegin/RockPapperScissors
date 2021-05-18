@@ -21,7 +21,7 @@ namespace RockPapperScissors.App
             {
                 Console.WriteLine($"Part A\n");
                 var gameWiner = GameService.rps_game_winner(players);
-                Console.WriteLine($"Player winner is {gameWiner.Name} with move {gameWiner.Move}\n");
+                Console.WriteLine($"{gameWiner.GetMoveWinner()}\n");
             }
             catch (Exception ex)
             {
@@ -57,7 +57,7 @@ namespace RockPapperScissors.App
             {
                 Console.WriteLine($"Part B\n");
                 var tournamentWiner = GameService.rps_tournament_winner(playersTournament);
-                Console.WriteLine($"Player winner is {tournamentWiner.Name} with move {tournamentWiner.Move}");
+                Console.WriteLine($"{tournamentWiner.GetMoveWinner()}");
             }
             catch (Exception ex)
             {
