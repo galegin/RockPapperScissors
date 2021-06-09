@@ -1,9 +1,9 @@
-﻿using RockPapperScissors.Application;
-using RockPapperScissors.Domain;
-using System;
+﻿using System;
 
 namespace RockPapperScissors.App
 {
+    using static MoveType;
+
     class Program
     {
         static void Main(string[] args)
@@ -18,18 +18,14 @@ namespace RockPapperScissors.App
          */
         private static void GamePartA()
         {
-            var players = new Player[2]
-            {
-                new Player("Armando", "P"), new Player("Dave", "S"),
-            };
-
             Console.Clear();
             Console.WriteLine("Part A\n");
 
+            var gamePlay = new GamePlay(new Player("Armando", Papper), new Player("Dave", Scissors));
+            
             try
             {
-                var winner = GameService.rps_game_winner(players);
-                Console.WriteLine($"{winner.GetMoveWinner()}\n");
+                gamePlay.GetWinner();
             }
             catch (Exception ex)
             {
@@ -56,25 +52,23 @@ namespace RockPapperScissors.App
         */
         private static void TournamentPartB()
         {
-            var players = new Player[2, 2, 2]
-            {
-                {
-                    { new Player("Armando", "P"), new Player("Dave", "S") },
-                    { new Player("Richard", "R"), new Player("Michael", "S") },
-                },
-                {
-                    { new Player("Allen", "S"), new Player("Omer", "P") },
-                    { new Player("David E.", "R"), new Player("Richard X.", "P") },
-                },
-            };
-
             Console.Clear();
             Console.WriteLine("Part B\n");
 
+            var tournament = new GamePlay(
+                new GamePlay(
+                    new GamePlay(new Player("Armando", Papper), new Player("Dave", Scissors)).GetWinner(),
+                    new GamePlay(new Player("Richard", Rock), new Player("Michael", Scissors)).GetWinner()
+                ).GetWinner(),
+                new GamePlay(
+                    new GamePlay(new Player("Allen", Scissors), new Player("Omer", Papper)).GetWinner(),
+                    new GamePlay(new Player("David E.", Rock), new Player("Richard X.", Papper)).GetWinner()
+                ).GetWinner()
+            );
+
             try
             {
-                var winner = GameService.rps_tournament_winner(players);
-                Console.WriteLine($"{winner.GetMoveWinner()}\n");
+                tournament.GetWinner();
             }
             catch (Exception ex)
             {

@@ -1,4 +1,4 @@
-﻿namespace RockPapperScissors.Domain
+﻿namespace RockPapperScissors.App
 {
     public class Player
     {

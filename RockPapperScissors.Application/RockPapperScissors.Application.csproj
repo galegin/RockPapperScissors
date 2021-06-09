@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\GameService.cs" />
+    <Compile Include="Services\GamePlay.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RockPapperScissors.Domain\RockPapperScissors.Domain.csproj">
