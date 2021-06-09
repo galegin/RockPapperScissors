@@ -1,12 +1,20 @@
-﻿using RockPapperScissors.Domain;
-using System;
+﻿using System;
 
 namespace RockPapperScissors.App
 {
-    public class GamePlay
+    public class GamePlay : IGamePlay
     {
-        private readonly Player _player1;
-        private readonly Player _player2;
+        private readonly GamePlay _gamePlay1;
+        private readonly GamePlay _gamePlay2;
+
+        private Player _player1;
+        private Player _player2;
+
+        public GamePlay(GamePlay gamePlay1, GamePlay gamePlay2)
+        {
+            _gamePlay1 = gamePlay1;
+            _gamePlay2 = gamePlay2;
+        }
 
         public GamePlay(Player player1, Player player2)
         {
@@ -16,6 +24,11 @@ namespace RockPapperScissors.App
 
         public Player GetWinner()
         {
+            if (_player1 is null & _gamePlay1 != null)
+                _player1 = _gamePlay1.GetWinner();
+            if (_player2 is null & _gamePlay2 != null)
+                _player2 = _gamePlay2.GetWinner();
+
             Console.WriteLine(_player1.GetMove());
             Console.WriteLine(_player2.GetMove());
 

@@ -57,13 +57,13 @@ namespace RockPapperScissors.App
 
             var tournament = new GamePlay(
                 new GamePlay(
-                    new GamePlay(new Player("Armando", Papper), new Player("Dave", Scissors)).GetWinner(),
-                    new GamePlay(new Player("Richard", Rock), new Player("Michael", Scissors)).GetWinner()
-                ).GetWinner(),
+                    new GamePlay(new Player("Armando", Papper), new Player("Dave", Scissors)),
+                    new GamePlay(new Player("Richard", Rock), new Player("Michael", Scissors))
+                ),
                 new GamePlay(
-                    new GamePlay(new Player("Allen", Scissors), new Player("Omer", Papper)).GetWinner(),
-                    new GamePlay(new Player("David E.", Rock), new Player("Richard X.", Papper)).GetWinner()
-                ).GetWinner()
+                    new GamePlay(new Player("Allen", Scissors), new Player("Omer", Papper)),
+                    new GamePlay(new Player("David E.", Rock), new Player("Richard X.", Papper))
+                )
             );
 
             try
