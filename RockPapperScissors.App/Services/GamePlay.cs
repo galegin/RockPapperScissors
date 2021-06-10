@@ -4,22 +4,22 @@ namespace RockPapperScissors.App
 {
     public class GamePlay : IGamePlay
     {
-        private readonly GamePlay _gamePlay1;
-        private readonly GamePlay _gamePlay2;
-
         private Player _player1;
         private Player _player2;
 
-        public GamePlay(GamePlay gamePlay1, GamePlay gamePlay2)
-        {
-            _gamePlay1 = gamePlay1;
-            _gamePlay2 = gamePlay2;
-        }
+        private readonly IGamePlay _gamePlay1;
+        private readonly IGamePlay _gamePlay2;
 
         public GamePlay(Player player1, Player player2)
         {
             _player1 = player1;
             _player2 = player2;
+        }
+
+        public GamePlay(IGamePlay gamePlay1, IGamePlay gamePlay2)
+        {
+            _gamePlay1 = gamePlay1;
+            _gamePlay2 = gamePlay2;
         }
 
         public Player GetWinner()

@@ -19,7 +19,7 @@ namespace RockPapperScissors.App
         private static void GamePartA()
         {
             Console.Clear();
-            Console.WriteLine("Part A\n");
+            Console.WriteLine("GamePart - A\n");
 
             var gamePlay = new GamePlay(new Player("Armando", Papper), new Player("Dave", Scissors));
             
@@ -53,7 +53,7 @@ namespace RockPapperScissors.App
         private static void TournamentPartB()
         {
             Console.Clear();
-            Console.WriteLine("Part B\n");
+            Console.WriteLine("TournamentPart - B\n");
 
             var tournament = new GamePlay(
                 new GamePlay(
